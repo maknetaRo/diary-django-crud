@@ -12,6 +12,7 @@ django-ckeditor = "*"
 django-heroku = "*"
 django-decouple = "*"
 gunicorn = "*"
+whitenoise = "*"
 
 [requires]
 python_version = "3.8"

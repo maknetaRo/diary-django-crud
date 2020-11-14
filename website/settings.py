@@ -13,6 +13,11 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 from decouple import config
 
+# Configure Django App for Heroku.
+import django_heroku
+
+django_heroku.settings(locals())
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -45,6 +50,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -118,7 +124,7 @@ USE_TZ = True
 STATIC_URL = "/static/"
 STATIC_ROOT = str(BASE_DIR.joinpath("staticfiles"))
 STATICFILES_DIRS = (str(BASE_DIR.joinpath("static")),)
-STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 MEDIA_URL = "/media/"
@@ -137,9 +143,3 @@ CKEDITOR_CONFIGS = {
     }
 }
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-
-# Configure Django App for Heroku.
-import django_heroku
-
-django_heroku.settings(locals())
