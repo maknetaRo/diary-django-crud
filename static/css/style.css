@@ -1,0 +1,25 @@
+:root {
+    --accent-color: #F07886;
+    --main-bg-color: #F9FAF5;
+    --bg-color: #E9E9E9;
+    --grey-color: #CCD0D7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--main-bg-color);
+}
+
+
+.main-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-top: 2rem;
+    
+    
+}

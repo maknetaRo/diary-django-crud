@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Delete entry </h2>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <p>Are you sure you want to delete "{{ entry.title }}"?</p>
+    <input type="submit" value="Confirm">
+</form>
+
+If not go back to entry: <button><a href="{{ entry.get_absolute_url }}">Go back</a></button> 
+or edit   <button><a href="{% url 'entry_edit' entry.slug %}">Edit Entry</a></button>    
+
+{% endblock %}

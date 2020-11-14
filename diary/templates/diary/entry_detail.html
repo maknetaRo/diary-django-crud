@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+ 
+
+<h2>{{ entry.title }}</h2>
+<div class="row">
+    <h3>{{ entry.author }}</h3>
+    <p>{{ entry.created_on }}</p>
+</div>
+<div class="image">
+    {% if entry.image %}
+    <img src="{{ entry.image.url }}" alt="" style="width:auto;height:200px;" >
+    {% endif %}
+</div>
+    <p>{{ entry.text|safe}}</p>
+
+    <button><a href="{% url 'entry_edit' entry.slug %}">Edit Entry</a></button>    
+
+    <button><a href="{% url 'entry_delete' entry.slug %}">Delete Entry</a></button>
+
+    <hr />
+
+{% endblock %}
