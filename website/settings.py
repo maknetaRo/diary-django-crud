@@ -12,9 +12,10 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 from decouple import config
+import dj_database_url
+
 
 # Configure Django App for Heroku.
-import django_heroku
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -140,5 +141,8 @@ CKEDITOR_CONFIGS = {
     }
 }
 
+try:
+    from local_settings import *
+except ImportError:
+    pass
 
-django_heroku.settings(locals())
