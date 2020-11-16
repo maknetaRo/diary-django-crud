@@ -4,6 +4,48 @@
     --bg-color: #E9E9E9;
     --grey-color: #CCD0D7;
 }
+*/
+:root {
+    --ck-z-default: 100;
+    --ck-z-modal: calc( var(--ck-z-default) + 999 );
+   
+}
+
+/*
+ * Bring back the default CKEditor 5 input appearance by overriding
+ * high–specificity styles brought by materialize.css.
+ *
+ * See: https://github.com/Dogfalo/materialize/blob/v1-dev/sass/components/forms/_input-fields.scss#L10-L40
+ */
+.ck input.ck-input.ck-input-text {
+    box-shadow: var(--ck-inner-shadow),0 0;
+    background: var(--ck-color-input-background);
+    border: 1px solid var(--ck-color-input-border);
+    padding: var(--ck-spacing-extra-tiny) var(--ck-spacing-medium);
+    transition-property: box-shadow,border;
+    transition: .2s ease-in-out;
+
+    height: inherit;
+    width: inherit;
+    font-size: inherit;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.ck input.ck-input.ck-input-text:focus {
+    border: var(--ck-focus-ring);
+    box-shadow: var(--ck-focus-outer-shadow),var(--ck-inner-shadow);
+}
+
+.ck.ck-content ul,
+.ck.ck-content ul li {
+  list-style-type: inherit;
+}
+
+.ck.ck-content ul {
+  /* Default user agent stylesheet, you can change it to your needs. */
+  padding-left: 40px;
+}
 
 * {
     margin: 0;
@@ -17,9 +59,41 @@ body {
 
 
 .main-content {
-    max-width: 800px;
+    max-width: 100%;
     margin: 0 auto;
-    padding-top: 2rem;
+    padding-top: 2rem;     
+}
+
+.height {
+    height: auto;
+}
+
+img {
+    max-width: 100%;
+    max-height: 300px;   
+    object-fit: cover;  
     
-    
+}
+p img {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.list h2 {
+    font-size: 18px;
+}
+
+.btn-floating {
+    margin: 1rem;
+}
+
+.btn {
+    margin: 1rem 1rem 1rem 0;
+}
+input[type=submit] {
+   color: white;
+   letter-spacing: 1px;
+}
+select {
+    display: block;
 }

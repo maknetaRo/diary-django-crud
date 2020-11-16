@@ -1,16 +1,24 @@
 {% extends "base.html" %}
+{% load materializecss %}
 
 {% block content %}
 
-<h2>Delete entry </h2>
+<div class="card-panel delete">
+    <h2>Delete entry </h2>
 
 <form action="" method="post">
     {% csrf_token %}
     <p>Are you sure you want to delete "{{ entry.title }}"?</p>
-    <input type="submit" value="Confirm">
+    
+        <input class="waves-effect waves-light red lighten-2 btn" type="submit" value="Confirm">
+    
+  
 </form>
 
-If not go back to entry: <button><a href="{{ entry.get_absolute_url }}">Go back</a></button> 
-or edit   <button><a href="{% url 'entry_edit' entry.slug %}">Edit Entry</a></button>    
+If not go back to entry: <a class="red-text text-lighten2" href="{{ entry.get_absolute_url }}">Go back</a>
+or edit   <a class="red-text text-lighten2" href="{% url 'entry_edit' entry.slug %}">Edit Entry</a>    
+
+
+</div>
 
 {% endblock %}

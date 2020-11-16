@@ -1,28 +1,44 @@
 {% extends "base.html" %}
+{% load materializecss %}
 
 {% block content %}
-<button><a href="{% url 'entry_new'  %}">New Entry</a></button>
+
+<a class="btn-floating btn-medium waves-effect waves-light red lighten-2" href="{% url 'entry_new'  %}"><i class="material-icons" >add</i></a>
+
 
 {% for entry in entries %}
- 
 
-<h2><a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a></h2>
 <div class="row">
-    <h3>{{ entry.author }}</h3>
-    <p>{{ entry.created_on }}</p>
+    <div class="col s12 m12 l12">
+        <div class="card-panel">
+            <!-- <div class="card-image">
+                {% if entry.image %}
+                <img src="{{ entry.image.url }}" alt="" >
+                {% endif %}
+               
+               
+            </div> -->
+            <div class="card-content list">
+                <div class="row">
+                    <span class="card-title col s8">
+                        <a class="red-text text-lighten2" href="{{ entry.get_absolute_url }}">{{ entry.title }}</a>                       
+                    </span>
+                    <p class="right-align" style="padding-right: 1.15rem;">{{ entry.created_on|date:"M d, Y" }}</p>
+                    
+                </div>
+                
+                <p>{{ entry.text|safe|truncatewords:"10"}}</p>
+                <br>
+
+               
+            </div>
+            <div class="card-action">
+                <a href="{{ entry.get_absolute_url }}" class="waves-effect waves-light red lighten-2 btn">Read more</a>
+            </div>
+        </div>
+    </div>
 </div>
-<div class="image">
-    {% if entry.image %}
-    <img src="{{ entry.image.url }}" alt="" style="width:auto;height:200px;" >
-    {% endif %}
-</div>
-    <p>{{ entry.text|safe|truncatewords:"10"}}</p>
-    <button><a href="{{ entry.get_absolute_url }}">Read more</a></button>
-
-    <hr />
-
-
-
+ 
 
 
 {% endfor %}

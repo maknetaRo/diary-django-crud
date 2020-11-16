@@ -7,23 +7,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" />
+     <!-- Compiled and minified CSS -->
+     {% block css %}
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% endblock css %}
 </head>
 <body>
-    <nav>
-        <ul class="nav-list">
-            <li><a href="/">Home</a></li>
-            <li>My diary</li>
-        </ul>
-        
-    </nav>
-    <main class="main-content">
-        {% block content %}
-        {% endblock %}
-    </main>
-  
-
- 
     
+    <nav  class="red lighten-2">
+        <div class="nav-wrapper">
+            <a href="/" class="brand-logo center">My diary</a>
+              
+        </div>         
+            
+    </nav>
+    <div class="container">
+        <main class="main-content">
+            {% block content %}
+            {% endblock %}
+        </main>
+    </div>
+  
+  
+    {% block javascript %}
+ 
+    <!-- Compiled and minified JavaScript -->
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+         
+
+    {% endblock javascript %}
 </body>
 </html>

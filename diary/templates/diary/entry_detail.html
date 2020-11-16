@@ -1,25 +1,43 @@
 {% extends "base.html" %}
+{% load materializecss %}
 
 {% block content %}
 
  
-
-<h2>{{ entry.title }}</h2>
 <div class="row">
-    <h3>{{ entry.author }}</h3>
-    <p>{{ entry.created_on }}</p>
+    <div class="col s12 m12 l12">
+        <div class="card  height">
+            <div class="card-image">
+                {% if entry.image %}
+                <img src="{{ entry.image.url }}" alt="" >
+                {% endif %}
+               
+               
+            </div>
+            <div class="card-content ">
+                <div class="row">
+                    <span class="card-title col s8 red-text text-lighten2 ">
+                        {{ entry.title }}                      
+                    </span>
+                    <p class="right-align" style="padding-right: 1.15rem;">{{ entry.created_on|date:"M d, Y" }}</p>
+                    
+                </div>
+                
+                <p>{{ entry.text|safe}}</p>
+
+                <div class="row">
+                    <!-- <p>{{ entry.author }}</p> -->
+                    
+                </div>
+            </div>
+            <div class="card-action">
+                <a href="{% url 'entry_edit' entry.slug %}" class="waves-effect waves-light red lighten-2 btn">Edit</a>
+                <a href="{% url 'entry_delete' entry.slug %}" class="waves-effect waves-light red lighten-2 btn">Delete</a>
+            </div>
+ 
+        </div>
+    </div>
 </div>
-<div class="image">
-    {% if entry.image %}
-    <img src="{{ entry.image.url }}" alt="" style="width:auto;height:200px;" >
-    {% endif %}
-</div>
-    <p>{{ entry.text|safe}}</p>
 
-    <button><a href="{% url 'entry_edit' entry.slug %}">Edit Entry</a></button>    
-
-    <button><a href="{% url 'entry_delete' entry.slug %}">Delete Entry</a></button>
-
-    <hr />
 
 {% endblock %}

@@ -1,12 +1,14 @@
 {% extends "base.html" %}
+{% load materializecss %}
 
 {% block content %}
 <h2>Edit Entry</h2>
-<form action="" method="post" enctype="multipart/form-data">
-    {% csrf_token %}
+<form action="" method="post" enctype="multipart/form-data" novalidate>
+    
 
     {{ form.media }}
     {{ form.as_p }}
-    <input type="submit" value="Save">
+    {% csrf_token %}
+    <input class="waves-effect waves-light red lighten-2 btn" type="submit" value="Save">
 </form>
 {% endblock %}
