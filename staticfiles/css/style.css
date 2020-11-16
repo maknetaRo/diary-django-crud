@@ -3,9 +3,7 @@
     --main-bg-color: #F9FAF5;
     --bg-color: #E9E9E9;
     --grey-color: #CCD0D7;
-}
-*/
-:root {
+
     --ck-z-default: 100;
     --ck-z-modal: calc( var(--ck-z-default) + 999 );
    
@@ -93,6 +91,8 @@ p img {
 input[type=submit] {
    color: white;
    letter-spacing: 1px;
+   outline: transparent;
+   cursor: pointer;
 }
 select {
     display: block;

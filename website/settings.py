@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "diary.apps.DiaryConfig",
+    "account.apps.AccountConfig",
     "ckeditor",
     "ckeditor_uploader",
 ]
@@ -64,7 +65,7 @@ ROOT_URLCONF = "website.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -143,4 +144,7 @@ CKEDITOR_CONFIGS = {
         "allowedContent": True,
     }
 }
+
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
 
