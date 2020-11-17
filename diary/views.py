@@ -1,5 +1,6 @@
 from django.views import generic
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 from .models import Entry
@@ -16,18 +17,18 @@ class EntryDetailView(generic.DetailView):
     template_name = "diary/entry_detail.html"
 
 
-class EntryCreateView(generic.CreateView):
+class EntryCreateView(LoginRequiredMixin, generic.CreateView):
     model = Entry
     template_name = "diary/entry_new.html"
     fields = "__all__"
 
 
-class EntryUpdateView(generic.UpdateView):
+class EntryUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Entry
     fields = "__all__"
     template_name = "diary/entry_edit.html"
 
 
-class EntryDeleteView(generic.DeleteView):
+class EntryDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Entry
     success_url = reverse_lazy("entry_list")
