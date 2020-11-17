@@ -137,13 +137,13 @@ MEDIA_ROOT = "my_media"
 # Ckeditor configuration
 CKEDITOR_UPLOAD_PATH = "my_media/diary/"
 
-# CKEDITOR_CONFIGS = {
-#     "default": {
-#         "toolbar": "none",
-#         "extraPlugins": ",".join(["uploadimage", "uploadwidget", "widget", "dialog",]),
-#         "allowedContent": True,
-#     }
-# }
+CKEDITOR_CONFIGS = {
+    "default": {
+        "toolbar": "none",
+        "extraPlugins": ",".join(["uploadimage", "uploadwidget", "widget", "dialog",]),
+        "allowedContent": True,
+    }
+}
 
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
