@@ -2,23 +2,28 @@
 
 
 {% block content %}
+<div class="container">
+    <main class="main-content">
 
-<div class="card-panel delete">
-    <h3>Delete entry </h3>
-
-<form action="" method="post">
-    {% csrf_token %}
-    <p>Are you sure you want to delete "{{ entry.title }}"?</p>
-    
-        <input class="waves-effect waves-light red lighten-2 btn" type="submit" value="Confirm">
-    
-  
-</form>
-
-If not go back to entry: <a class="red-text text-lighten2" href="{{ entry.get_absolute_url }}">Go back</a>
-or edit   <a class="red-text text-lighten2" href="{% url 'entry_edit' entry.slug %}">Edit Entry</a>    
-
-
+        <div class="card-panel delete">
+            <h3>Delete entry </h3>
+        
+        <form action="" method="post">
+            {% csrf_token %}
+            <p>Are you sure you want to delete "{{ entry.title }}"?</p>
+            
+                <input class="waves-effect waves-light red lighten-2 btn" type="submit" value="Confirm">
+            
+          
+        </form>
+        
+        If not go back to entry: <a class="red-text text-lighten2" href="{{ entry.get_absolute_url }}">Go back</a>
+        or edit   <a class="red-text text-lighten2" href="{% url 'entry_edit' entry.slug %}">Edit Entry</a>    
+        
+        
+        </div>
+        </main>
 </div>
+
 
 {% endblock %}

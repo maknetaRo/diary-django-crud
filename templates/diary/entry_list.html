@@ -2,8 +2,15 @@
 
 
 {% block content %}
+<div class="container" style="display:flex;width: 85%;">
+
+
+{% include 'partials/_sidebar.html' %}
+
+<main class="main-content col s7">
 
 <a class="btn-floating btn-medium waves-effect waves-light red lighten-2" href="{% url 'entry_new'  %}"><i class="material-icons" >add</i></a>
+
 
 
 {% for entry in entries %}
@@ -42,5 +49,8 @@
 
 
 {% endfor %}
+
+</main>
+</div>
 
 {% endblock %}

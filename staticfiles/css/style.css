@@ -54,14 +54,23 @@
 body {
     background-color: var(--main-bg-color);
 }
-
+.container {   
+    padding-top: 2rem;  
+   
+}
 
 .main-content {
     max-width: 100%;
     margin: 0 auto;
-    padding-top: 2rem;     
+     
+    
 }
-
+.aside {
+    padding-top: 5rem;
+    padding-right: 2rem;
+    min-width: 200px;
+    
+}
 .height {
     height: auto;
 }
@@ -96,4 +105,10 @@ input[type=submit] {
 }
 select {
     display: block;
+}
+
+@media screen and (max-width: 767px) {
+    .aside {
+        display: none;
+    }
 }

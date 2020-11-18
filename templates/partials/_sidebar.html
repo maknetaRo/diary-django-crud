@@ -1,0 +1,10 @@
+{% load static %}
+
+<aside class="aside col s4" style="position: sticky;top:0;">
+    <p>All entries</p>
+    <ul>
+        {% for entry in entries  %}
+        <li><a class="red-text text-lighten2" href="{{ entry.get_absolute_url }}">{{ entry.title|truncatewords:"2"}}</a></li>
+        {% endfor %}
+    </ul>
+</aside>
