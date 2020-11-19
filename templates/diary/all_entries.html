@@ -1,0 +1,7 @@
+
+
+<ul>
+    {% for entry in all_entries  %}
+    <li><a class="red-text text-lighten2" href="{{ entry.get_absolute_url }}">{{ entry.title|truncatewords:"2"}}</a></li>
+    {% endfor %}
+</ul>

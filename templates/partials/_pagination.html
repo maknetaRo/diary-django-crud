@@ -1,0 +1,22 @@
+{% block pagination %}
+{% if is_paginated %}
+<ul class="pagination">
+    <li class="page-links waves-effect">
+        {% if page_obj.has_previous%}
+        <a  href="{{ request.path }}?page={{ page_obj.previous_page_number }}"><i class="material-icons">chevron_left</i></a>
+        {% endif %}
+    </li>
+
+        <li class="page-current waves-effect">
+            {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+        </li>
+<li class="waves-effect">
+        {% if page_obj.has_next %}
+        <a class="red-text text-lighten2" href="{{ request.path }}?page={{ page_obj.next_page_number }}"><i class="material-icons">chevron_right</i></a>
+        {% endif %}
+    </li>
+    
+</ul>
+{% endif %}
+
+{% endblock %}

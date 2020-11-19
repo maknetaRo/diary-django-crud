@@ -5,11 +5,6 @@
 
 <h3>Log In</h3>
 
-{% if form.errors %}
-<h5>Don't have an account? Register here: 
-    <a class="red-text text-lighten-2" href="{% url 'signup' %}">Sign Up</a></h5>
-{% endif %}
-
 
 <form action="" method="post" >
     {% csrf_token %}
@@ -17,6 +12,10 @@
     {{ form.as_p }}
     <input class="waves-effect waves-light red lighten-2 btn" type="submit" value="Log In">
 </form>
+
+
+<h5>Don't have an account? Register here: 
+    <a class="red-text text-lighten-2" href="{% url 'signup' %}">Sign Up</a></h5>
 
 </div>
 
