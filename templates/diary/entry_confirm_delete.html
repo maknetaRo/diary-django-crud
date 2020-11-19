@@ -4,9 +4,12 @@
 {% block content %}
 <div class="container">
     <main class="main-content">
-
+        
         <div class="card-panel delete">
+            {% if user.is_authenticated and user == entry.author %}
             <h3>Delete entry </h3>
+
+            
         
         <form action="" method="post">
             {% csrf_token %}
@@ -20,7 +23,11 @@
         If not go back to entry: <a class="red-text text-lighten2" href="{{ entry.get_absolute_url }}">Go back</a>
         or edit   <a class="red-text text-lighten2" href="{% url 'entry_edit' entry.slug %}">Edit Entry</a>    
         
-        
+        {% else %}
+
+        <h5>It seems you are not the author of the entry, you can't delete or edit it. </h5>
+        <p>Return to Home page <a class="red-text text-lighten2" href="{% url 'entry_list' %}">Home</a></p>
+        {% endif %}
         </div>
         </main>
 </div>

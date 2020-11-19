@@ -33,10 +33,12 @@
                     
                 </div>
             </div>
+            {% if user.is_authenticated and user == entry.author %}
             <div class="card-action">
                 <a href="{% url 'entry_edit' entry.slug %}" class="waves-effect waves-light red lighten-2 btn">Edit</a>
                 <a href="{% url 'entry_delete' entry.slug %}" class="waves-effect waves-light red lighten-2 btn">Delete</a>
             </div>
+            {% endif %}
  
         </div>
     </div>

@@ -6,6 +6,8 @@
 
 
 <main class="main-content">
+
+    {% if user.is_authenticated and user == entry.author %}
 <h3>Edit Entry</h3>
 <form action="" method="post" enctype="multipart/form-data" novalidate>
     
@@ -15,6 +17,12 @@
     {% csrf_token %}
     <input class="waves-effect waves-light red lighten-2 btn" type="submit" value="Save">
 </form>
+
+{% else %}
+
+        <h5>It seems you are not the author of the entry, you can't delete or edit it. </h5>
+        <p>Return to Home page <a class="red-text text-lighten2" href="{% url 'entry_list' %}">Home</a></p>
+        {% endif %}
 </main>
 </div>
 {% endblock %}
