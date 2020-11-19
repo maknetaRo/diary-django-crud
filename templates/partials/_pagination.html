@@ -3,7 +3,7 @@
 <ul class="pagination">
     <li class="page-links waves-effect">
         {% if page_obj.has_previous%}
-        <a  href="{{ request.path }}?page={{ page_obj.previous_page_number }}"><i class="material-icons">chevron_left</i></a>
+        <a class="red-text text-lighten2" href="{{ request.path }}?page={{ page_obj.previous_page_number }}"><i class="material-icons">chevron_left</i></a>
         {% endif %}
     </li>
 
