@@ -13,6 +13,13 @@ class EntryList(generic.ListView):
     context_object_name = "entries"
     paginate_by = 5
 
+    def get_queryset(self, **kwargs):
+        qs = Entry.objects.filter(public=True)
+        return qs
+
+
+# class EntryListByAuthor(generic.ListView):
+
 
 class EntryDetailView(generic.DetailView):
     model = Entry
