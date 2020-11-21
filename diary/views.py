@@ -15,6 +15,13 @@ class EntryList(generic.ListView):
 
     def get_queryset(self, **kwargs):
         qs = Entry.objects.filter(public=True)
+        # qs_public = Entry.objects.filter(public=True)
+        # user = self.user
+        # entry = self.entry
+        # if user.is_authenticated and user == entry.author:
+        #     qs_author = Entry.objects.filter("author")
+        # qs = qs_public | qs_author
+
         return qs
 
 
