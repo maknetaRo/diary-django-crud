@@ -1,7 +1,8 @@
 from django.views import generic
 from django.urls import reverse_lazy
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.core.exceptions import PermissionDenied
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+
+from django.contrib.auth.models import User
 
 
 from .models import Entry
@@ -11,18 +12,11 @@ class EntryList(generic.ListView):
     template_name = "diary/entry_list.html"
     queryset = Entry.objects.all()
     context_object_name = "entries"
-    paginate_by = 5
+    # paginate_by = 5
 
-    def get_queryset(self, **kwargs):
-        qs = Entry.objects.filter(public=True)
-        # qs_public = Entry.objects.filter(public=True)
-        # user = self.user
-        # entry = self.entry
-        # if user.is_authenticated and user == entry.author:
-        #     qs_author = Entry.objects.filter("author")
-        # qs = qs_public | qs_author
-
-        return qs
+    # def get_queryset(self, **kwargs):
+    #     qs = Entry.objects.all().filter(public=True)
+    #     return qs
 
 
 # class EntryListByAuthor(generic.ListView):
@@ -39,13 +33,21 @@ class EntryCreateView(LoginRequiredMixin, generic.CreateView):
     fields = "__all__"
 
 
-class EntryUpdateView(LoginRequiredMixin, generic.UpdateView):
+class EntryUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     model = Entry
     fields = "__all__"
     template_name = "diary/entry_edit.html"
 
+    def test_func(self):
+        obj = self.get_object()
+        return obj.author == self.request.user
 
-class EntryDeleteView(LoginRequiredMixin, generic.DeleteView):
+
+class EntryDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
     model = Entry
     success_url = reverse_lazy("entry_list")
+
+    def test_func(self):
+        obj = self.get_object()
+        return obj.author == self.request.user
 
