@@ -4,6 +4,7 @@ from . import views
 
 urlpatterns = [
     path("", views.EntryList.as_view(), name="entry_list"),
+    path("private/", views.EntryPrivateListView.as_view(), name="private",),
     path("entry/new/", views.EntryCreateView.as_view(), name="entry_new"),
     path(
         "entry/<slug:slug>/delete/",

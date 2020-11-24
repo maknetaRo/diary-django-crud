@@ -12,14 +12,20 @@ class EntryList(generic.ListView):
     template_name = "diary/entry_list.html"
     queryset = Entry.objects.all()
     context_object_name = "entries"
-    # paginate_by = 5
-
-    # def get_queryset(self, **kwargs):
-    #     qs = Entry.objects.all().filter(public=True)
-    #     return qs
 
 
-# class EntryListByAuthor(generic.ListView):
+class EntryPrivateListView(generic.ListView):
+    template = "diary/entry_private_list.html"
+    context_object_name = "entries"
+    paginate_by = 5
+
+    def get_queryset(self):
+        queryset = Entry.objects.all()
+        user = self.request.user
+
+        if not user.is_anonymous:
+            queryset = queryset.filter(author=user)
+        return queryset
 
 
 class EntryDetailView(generic.DetailView):

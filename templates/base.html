@@ -19,9 +19,10 @@
     <nav  class="red lighten-2">
         <div class="nav-wrapper">
             <a href="/" class="brand-logo left">My diary</a>
-            <ul id="nav-mobile" class="right ">
+            <ul id="nav-mobile" class="right" >
                 {% if user.is_authenticated %}
-                <li>Hi, {{ user.username }} </li>
+                <li style="display:flex;"> Hi, <a href="{% url 'private' %}"> {{ user.username }}
+                </a></li> 
                 <li> <a href="{% url 'logout'  %}">Log Out</a></li>
                
                 {% else %}
