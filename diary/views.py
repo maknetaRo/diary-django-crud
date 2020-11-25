@@ -1,6 +1,7 @@
 from django.views import generic
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from django.contrib.auth.models import User
 
@@ -10,12 +11,13 @@ from .models import Entry
 
 class EntryList(generic.ListView):
     template_name = "diary/entry_list.html"
-    queryset = Entry.objects.all()
+    queryset = Entry.objects.all().filter(public=True)
     context_object_name = "entries"
+    paginate_by = 5
 
 
 class EntryPrivateListView(generic.ListView):
-    template = "diary/entry_private_list.html"
+    template_name = "diary/entry_private_list.html"
     context_object_name = "entries"
     paginate_by = 5
 

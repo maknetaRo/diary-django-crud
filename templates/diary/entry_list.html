@@ -8,32 +8,15 @@
 {% include 'partials/_sidebar.html' %}
 
 <main class="main-content col s7">
-    <!-- {% if user.is_authenticated %}
-    <h5 class="red-text text-lighten2" style="text-align:center;" >These are your Entries.</h5>
-    {% else %}
-
-
-    <h5 class="red-text text-lighten2" style="text-align:center;" >Here you can read all public Entries.</h5>
-    {% endif %} -->
-
-<a class="btn-floating btn-medium waves-effect waves-light red lighten-2" href="{% url 'entry_new'  %}"><i class="material-icons" >add</i></a>
-
-
+  
+    <p class="waves-effect waves-light red lighten-2 btn">Public entries</p>
 
 {% for entry in entries %}
-
-<!-- {% if user == entry.author or entry.public == True %} -->
 
 <div class="row">
     <div class="col s12 m12 l12">
         <div class="card-panel">
-            <!-- <div class="card-image">
-                {% if entry.image %}
-                <img src="{{ entry.image.url }}" alt="" >
-                {% endif %}
-               
-               
-            </div> -->
+            
             <div class="card-content list">
                 <div class="row">
                     <span class="card-title col s8">
@@ -56,7 +39,7 @@
     </div>
 </div>
  
-<!-- {% endif %} -->
+
 
 
 {% endfor %}

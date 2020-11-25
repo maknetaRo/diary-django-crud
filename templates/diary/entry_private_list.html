@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="container" style="display:flex;width: 85%;">
+
+
+{% include 'partials/_sidebar.html' %}
+
+<main class="main-content col s7">
+
+    <p class="waves-effect waves-light red lighten-2 btn">All your posts, {{ user.username }}</p>
+
+{% for entry in entries %}
+
+<div class="row">
+    <div class="col s12 m12 l12">
+        <div class="card-panel">
+            
+            <div class="card-content list">
+                <div class="row">
+                    <span class="card-title col s8">
+                        <a class="red-text text-lighten2" href="{{ entry.get_absolute_url }}">{{ entry.title }}</a>                       
+                    </span>
+                    <p class="right-align" style="padding-right: 1.15rem;">{{ entry.created_on|date:"M d, Y" }}</p>
+                    
+                </div>
+                
+                <p>{{ entry.text|safe|truncatewords:"10"}}</p>
+                <br>
+
+               
+            </div>
+            <div class="card-action">
+                <a href="{{ entry.get_absolute_url }}" class="waves-effect waves-light red lighten-2 btn">Read more</a>
+                <p>author: {{ entry.author }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+
+
+
+{% endfor %}
+
+{% include 'partials/_pagination.html' with page=entries %}
+
+</main>
+
+</div>
+
+{% endblock %}
