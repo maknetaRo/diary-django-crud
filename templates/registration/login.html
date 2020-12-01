@@ -1,23 +1,22 @@
-{% extends 'base.html' %}
-
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 <div class="container">
+  <main class="main-content">
+    <h3>Log In</h3>
 
-<h3>Log In</h3>
+    <form action="" method="post">
+      {% csrf_token %} {{ form.as_p }}
+      <input
+        class="waves-effect waves-light red lighten-2 btn"
+        type="submit"
+        value="Log In"
+      />
+    </form>
 
-
-<form action="" method="post" >
-    {% csrf_token %}
-    
-    {{ form.as_p }}
-    <input class="waves-effect waves-light red lighten-2 btn" type="submit" value="Log In">
-</form>
-
-
-<h5>Don't have an account? Register here: 
-    <a class="red-text text-lighten-2" href="{% url 'signup' %}">Sign Up</a></h5>
-
-
+    <h5>
+      Don't have an account? Register here:
+      <a class="red-text text-lighten-2" href="{% url 'signup' %}">Sign Up</a>
+    </h5>
+  </main>
 </div>
 
 {% endblock %}

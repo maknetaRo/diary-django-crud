@@ -1,29 +1,36 @@
-{% extends 'base.html' %}
-
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 
 <div class="container">
+  <main class="main-content">
+    <h3>Sign Up</h3>
 
-<h3>Sign Up</h3>
+    <form action="" method="post">
+      {% csrf_token %} {{ form.as_p }}
+      <input
+        class="waves-effect waves-light red lighten-2 btn"
+        type="submit"
+        value="Sign Up"
+      />
+    </form>
 
-<form action="" method="post" >
-    {% csrf_token %}
-    
-    {{ form.as_p }}
-    <input class="waves-effect waves-light red lighten-2 btn" type="submit" value="Sign Up">
-</form>
+    <h5>
+      Have an account? Login here:
+      <a class="red-text text-lighten-2" href="{% url 'login' %}">Login</a>
+    </h5>
 
-<h5>Have an account? Login here: 
-    <a class="red-text text-lighten-2" href="{% url 'login' %}">Login</a></h5>
+    <h5>
+      Do you want to change your password?
+      <a href="{% url 'password_change' %}" class="red-text text-lighten-2"
+        >Change Password</a
+      >
+    </h5>
 
-
-<h5>Do you want to change your password?  
-    <a href="{% url 'password_change' %}" class="red-text text-lighten-2">Change Password</a>
-</h5>
-
-<h5>Forgotten your password?  
-    <a href="{% url 'password_reset' %}" class="red-text text-lighten-2">Password Reset</a>
-</h5>
-
+    <h5>
+      Forgotten your password?
+      <a href="{% url 'password_reset' %}" class="red-text text-lighten-2"
+        >Password Reset</a
+      >
+    </h5>
+  </main>
 </div>
 {% endblock %}
