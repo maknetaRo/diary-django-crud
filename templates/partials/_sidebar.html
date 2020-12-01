@@ -1,8 +1,14 @@
+{% load diary_tags %} {% load static %}
 
+<aside class="aside col s4">
+  <a
+    class="btn-floating btn-medium waves-effect waves-light red lighten-2"
+    href="{% url 'entry_new'  %}"
+    ><i class="material-icons">add</i></a
+  >
 
-{% load static %}
-
-<aside class="aside col s4" >
-    <a class="btn-floating btn-medium waves-effect waves-light red lighten-2" href="{% url 'entry_new'  %}"><i class="material-icons" >add</i></a>
-  
+  <h6>All public entries ({% all_public_entries %})</h6>
+  <ul class="entries-list">
+    {% list_all_entries %}
+  </ul>
 </aside>
