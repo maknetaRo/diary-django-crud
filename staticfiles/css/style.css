@@ -1,12 +1,11 @@
 :root {
-    --accent-color: #F07886;
-    --main-bg-color: #F9FAF5;
-    --bg-color: #E9E9E9;
-    --grey-color: #CCD0D7;
+  --accent-color: #f07886;
+  --main-bg-color: #f9faf5;
+  --bg-color: #e9e9e9;
+  --grey-color: #ccd0d7;
 
-    --ck-z-default: 100;
-    --ck-z-modal: calc( var(--ck-z-default) + 999 );
-   
+  --ck-z-default: 100;
+  --ck-z-modal: calc(var(--ck-z-default) + 999);
 }
 
 /*
@@ -16,23 +15,23 @@
  * See: https://github.com/Dogfalo/materialize/blob/v1-dev/sass/components/forms/_input-fields.scss#L10-L40
  */
 .ck input.ck-input.ck-input-text {
-    box-shadow: var(--ck-inner-shadow),0 0;
-    background: var(--ck-color-input-background);
-    border: 1px solid var(--ck-color-input-border);
-    padding: var(--ck-spacing-extra-tiny) var(--ck-spacing-medium);
-    transition-property: box-shadow,border;
-    transition: .2s ease-in-out;
+  box-shadow: var(--ck-inner-shadow), 0 0;
+  background: var(--ck-color-input-background);
+  border: 1px solid var(--ck-color-input-border);
+  padding: var(--ck-spacing-extra-tiny) var(--ck-spacing-medium);
+  transition-property: box-shadow, border;
+  transition: 0.2s ease-in-out;
 
-    height: inherit;
-    width: inherit;
-    font-size: inherit;
-    margin: 0;
-    box-sizing: border-box;
+  height: inherit;
+  width: inherit;
+  font-size: inherit;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 .ck input.ck-input.ck-input-text:focus {
-    border: var(--ck-focus-ring);
-    box-shadow: var(--ck-focus-outer-shadow),var(--ck-inner-shadow);
+  border: var(--ck-focus-ring);
+  box-shadow: var(--ck-focus-outer-shadow), var(--ck-inner-shadow);
 }
 
 .ck.ck-content ul,
@@ -46,85 +45,94 @@
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: var(--main-bg-color);
+  background-color: var(--main-bg-color);
+  display: grid;
+  grid-template-rows: 1fr auto auto;
 }
-.container {   
-    padding-top: 2rem;  
-   
+
+.container {
+  padding-top: 2rem;
 }
 
 .main-content {
-    width: 100%;
-    margin: 0 auto;
-    margin-bottom: 5rem;     
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 5rem;
+  min-height: calc(100vh - 300px - 2rem);
+}
+.container {
+  padding-top: 2rem;
+}
+
+.main-content {
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 5rem;
 }
 
 .pagination {
-    display:flex; 
-    width:100%; 
-    align-items:center; 
-    justify-content:center;
-    font-size: 1.15rem;
-    padding-bottom: 5rem;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  padding-bottom: 5rem;
 }
-
 
 .aside {
-    padding-top: 5rem;
-    padding-right: 2rem;
-    min-width: 200px;
-    
+  padding-top: 5rem;
+  padding-right: 2rem;
+  min-width: 200px;
 }
 .height {
-    height: auto;
+  height: auto;
 }
 
 img {
-    max-width: 100%;
-    max-height: 300px;   
-    object-fit: cover;  
-    
+  max-width: 100%;
+  max-height: 300px;
+  object-fit: cover;
 }
 p img {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .list h2 {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 .btn-floating {
-    margin: 1rem;
+  margin: 1rem;
 }
 
 .btn {
-    margin: 1rem 1rem 1rem 0;
+  margin: 1rem 1rem 1rem 0;
 }
-input[type=submit] {
-   color: white;
-   letter-spacing: 1px;
-   outline: transparent;
-   cursor: pointer;
+input[type="submit"] {
+  color: white;
+  letter-spacing: 1px;
+  outline: transparent;
+  cursor: pointer;
 }
 select {
-    display: block;
+  display: block;
 }
 
 [type="checkbox"]:not(:checked),
 [type="checkbox"]:checked {
-    opacity: 1;
-    pointer-events: visible;
+  opacity: 1;
+  pointer-events: visible;
 }
 
 @media screen and (max-width: 767px) {
-    .aside {
-        display: none;
-    }
+  .aside {
+    display: none;
+  }
 }
