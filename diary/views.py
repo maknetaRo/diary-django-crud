@@ -38,12 +38,16 @@ class EntryDetailView(generic.DetailView):
 class EntryCreateView(LoginRequiredMixin, generic.CreateView):
     model = Entry
     template_name = "diary/entry_new.html"
-    fields = "__all__"
+    fields = ["title", "text", "public"]
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
 
 class EntryUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     model = Entry
-    fields = "__all__"
+    fields = ["title", "text", "public"]
     template_name = "diary/entry_edit.html"
 
     def test_func(self):
